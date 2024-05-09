@@ -1,14 +1,3 @@
 plugins {
   id 'cpp-library'
 }
-
-library {
-  binaries.configureEach {
-    def compileTask = compileTask.get()
-    compileTask.source.from fileTree(dir: "src/main/c", include: "**/*.c")
-    compileTask.compilerArgs = ["-x", "c", "-std=c11"]
-
-    def linkTask = linkTask.get()
-    linkTask.linkerArgs = ["-nodefaultlibs", "-lc"]
-  }
-}

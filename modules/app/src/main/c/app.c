@@ -4,7 +4,11 @@
 #include "util.h"
 
 int main() {
-  printf("Hello World\n");
+  printf("%s\n", the_greeting());
   printf("%d\n", the_number());
   return EXIT_SUCCESS;
+}
+
+char *the_greeting() {
+  return "Hello World!";
 }

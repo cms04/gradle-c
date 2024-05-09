@@ -1,7 +1,14 @@
 plugins {
-  id 'cpp-library'
+  id 'cpp'
 }
 
 subprojects {
-  
+  tasks.withType(CppCompile).configureEach {
+    source.from fileTree(dir: "src/main/c", include: "**/*.c")
+    compilerArgs = ["-x", "c", "-std=c11", "-Wall", "-Werror"]
+  }
+
+  tasks.withType(LinkSharedLibrary).configureEach {
+    linkerArgs = ["-nodefaultlibs", "-lc"]
+  }
 }
