@@ -1,7 +1,3 @@
-plugins {
-  id 'cpp'
-}
-
 subprojects {
   tasks.withType(CppCompile).configureEach {
     source.from fileTree(dir: "src/main/c", include: "**/*.c")
